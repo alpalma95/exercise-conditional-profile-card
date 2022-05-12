@@ -33,13 +33,24 @@ function render(variables = {}) {
     name: variables.name == null ? "Name" : variables.name,
     lastname: variables.lastname == null ? "Surname" : variables.lastname,
     role: variables.role == null ? "Your role" : variables.role,
-    city: variables.city == null ? "Your city" : variables.city,
-    country: variables.country == null ? "Your country" : variables.country,
-    twitter: variables.twitter == null ? "Al_ElMolinillo" : variables.twitter,
-    github: variables.github == null ? "alpalma95" : variables.github,
+    city: variables.city == null ? "" : variables.city,
+    country: variables.country == null ? "" : variables.country,
+    twitter:
+      variables.twitter == null
+        ? ""
+        : `<li><a href="https://twitter.com/${variables.twitter}"><i class="fab fa-twitter"></i></a></li>`,
+    github:
+      variables.github == null
+        ? ""
+        : `<li><a href="https://github.com/${variables.github}"><i class="fab fa-github"></i></a></li>`,
     instagram:
-      variables.instagram == null ? "cafesaimaza" : variables.instagram,
-    linkedin: variables.linkedin == null ? "alvaro-pm" : variables.linkedin
+      variables.instagram == null
+        ? ""
+        : `<li><a href="https://instagram.com/${variables.instagram}"><i class="fab fa-instagram"></i></a></li>`,
+    linkedin:
+      variables.linkedin == null
+        ? ""
+        : `<li><a href="https://linkedin.com/in/${variables.linkedin}"><i class="fab fa-linkedin"></i></a></li>`
   };
 
   // reset the website body with the new html output
@@ -48,12 +59,14 @@ function render(variables = {}) {
           <img src="${variables.avatarURL}" class="photo" />
           <h1>${vars.name} ${vars.lastname}</h1>
           <h2>${vars.role}</h2>
-          <h3>${vars.city}, ${vars.country}</h3>
+          <h3>${vars.city}${vars.country && vars.city ? ", " : ""}${
+    vars.country
+  }</h3>
           <ul class="${variables.socialMediaPosition}">
-            <li><a href="https://twitter.com/${vars.twitter}"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="https://github.com/${vars.github}"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/in/${vars.linkedin}"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/${vars.instagram}"><i class="fab fa-instagram"></i></a></li>
+            ${vars.twitter}
+            ${vars.github}
+            ${vars.linkedin}
+            ${vars.instagram}
           </ul>
         </div>
     `;
