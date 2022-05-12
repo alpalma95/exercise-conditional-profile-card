@@ -28,7 +28,7 @@ function render(variables = {}) {
   // if includeCover==false then we reset the cover code without the <img> tag to make the cover transparent.
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
-
+  //useless comment just to test something on git
   const vars = {
     name: variables.name == null ? "Name" : variables.name,
     lastname: variables.lastname == null ? "Surname" : variables.lastname,
